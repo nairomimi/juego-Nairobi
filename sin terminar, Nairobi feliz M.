@@ -1,0 +1,51 @@
+import pygame
+import random
+import math
+
+pygame.init()
+
+WIDTH, HEIGHT = 1000, 650
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Sakura Academy - Escape Prototype")
+clock = pygame.time.Clock()
+
+# Colores
+BG = (235, 232, 242)
+FLOOR = (218, 214, 226)
+WALL = (55, 47, 67)
+DARK = (35, 30, 43)
+PINK = (218, 105, 150)
+RED = (180, 55, 75)
+WHITE = (250, 250, 250)
+GRAY = (135, 130, 145)
+GREEN = (105, 165, 115)
+GOLD = (235, 195, 80)
+BLUE = (95, 135, 190)
+
+font = pygame.font.SysFont("arial", 22)
+small = pygame.font.SysFont("arial", 16)
+big = pygame.font.SysFont("arial", 38, bold=True)
+
+# Jugador
+player = pygame.Rect(90, 550, 32, 46)
+
+# Sakura, la perseguidora
+enemy = pygame.Rect(820, 90, 32, 46)
+
+# Llaves
+keys_found = set()
+
+all_keys = {
+    "Biblioteca": pygame.Rect(130, 130, 24, 24),
+    "Laboratorio": pygame.Rect(650, 190, 24, 24),
+    "Gimnasio": pygame.Rect(820, 500, 24, 24),
+}
+
+# Puerta de salida
+exit_door = pygame.Rect(465, 35, 70, 20)
+
+# Paredes del mapa
+walls = [
+    pygame.Rect(0, 0, WIDTH, 30),
+    pygame.Rect(0, HEIGHT - 30, WIDTH, 30),
+   
